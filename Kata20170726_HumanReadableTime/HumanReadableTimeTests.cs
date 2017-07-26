@@ -61,11 +61,13 @@ namespace Kata20170726_HumanReadableTime
     {
         public string GetReadableTime(int seconds)
         {
-            var hour = seconds / 3600;
-            var min = seconds / 60 % 60;
-            var second = seconds % 60;
+            //var hour = seconds / 3600;
+            //var min = seconds / 60 % 60;
+            //var second = seconds % 60;
 
-            return $"{hour:00}:{min:00}:{second:00}";
+            var time = TimeSpan.FromSeconds(seconds);
+
+            return $"{(int)time.TotalHours:00}:{time.Minutes:00}:{time.Seconds:00}";
         }
     }
 }
