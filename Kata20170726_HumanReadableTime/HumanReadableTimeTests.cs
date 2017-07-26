@@ -62,7 +62,7 @@ namespace Kata20170726_HumanReadableTime
         public string GetReadableTime(int seconds)
         {
             var hour = seconds / 3600;
-            var min = (seconds / 60) >= 60 ? (seconds / 60) % 60 : seconds / 60;
+            var min = seconds / 60 % 60;
             var second = seconds % 60;
 
             return $"{hour:00}:{min:00}:{second:00}";
