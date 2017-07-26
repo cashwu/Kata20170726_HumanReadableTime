@@ -13,6 +13,12 @@ namespace Kata20170726_HumanReadableTime
             AssertGetReadableTimeShouldBe(0, "00:00:00");
         }
 
+        [TestMethod]
+        public void input_1_readableTime_shouldbe_000001()
+        {
+            AssertGetReadableTimeShouldBe(1, "00:00:01");
+        }
+
         private void AssertGetReadableTimeShouldBe(int seconds, string expected)
         {
             var timeFormat = new TimeFormat();
@@ -25,7 +31,7 @@ namespace Kata20170726_HumanReadableTime
     {
         public string GetReadableTime(int seconds)
         {
-            return "00:00:00";
+            return string.Format("00:00:{0:00}", seconds);
         }
     }
 }
