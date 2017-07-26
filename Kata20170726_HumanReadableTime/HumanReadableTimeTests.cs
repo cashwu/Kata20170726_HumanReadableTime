@@ -37,6 +37,18 @@ namespace Kata20170726_HumanReadableTime
             AssertGetReadableTimeShouldBe(3600, "01:00:00");
         }
 
+        [TestMethod]
+        public void input_86399_readableTime_shouldbe_235959()
+        {
+            AssertGetReadableTimeShouldBe(86399, "23:59:59");
+        }
+
+        [TestMethod]
+        public void input_359999_readableTime_shouldbe_995959()
+        {
+            AssertGetReadableTimeShouldBe(359999, "99:59:59");
+        }
+
         private void AssertGetReadableTimeShouldBe(int seconds, string expected)
         {
             var timeFormat = new TimeFormat();
