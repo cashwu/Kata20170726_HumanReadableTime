@@ -25,6 +25,18 @@ namespace Kata20170726_HumanReadableTime
             AssertGetReadableTimeShouldBe(60, "00:01:00");
         }
 
+        [TestMethod]
+        public void input_61_readableTime_shouldbe_000101()
+        {
+            AssertGetReadableTimeShouldBe(61, "00:01:01");
+        }
+
+        [TestMethod]
+        public void input_3600_readableTime_shouldbe_010000()
+        {
+            AssertGetReadableTimeShouldBe(3600, "01:00:00");
+        }
+
         private void AssertGetReadableTimeShouldBe(int seconds, string expected)
         {
             var timeFormat = new TimeFormat();
@@ -37,10 +49,17 @@ namespace Kata20170726_HumanReadableTime
     {
         public string GetReadableTime(int seconds)
         {
-            var hour = seconds / 60;
+            var min = seconds / 60;
+            var hour = 0;
+            if (min >= 60)
+            {
+                hour = min / 60;
+                min = min % 60;
+            }
+
             var second = seconds % 60;
 
-            return $"00:{hour:00}:{second:00}";
+            return $"{hour:00}:{min:00}:{second:00}";
         }
     }
 }
